@@ -1,0 +1,63 @@
+-- Initialize vim-plug
+vim.cmd [[
+    call plug#begin('~/.config/nvim/plugged')
+]]
+
+-- Define your plugins using Lua
+vim.cmd [[
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'nvim-lua/completion-nvim'
+    Plug 'tpope/vim-fugitive'
+    Plug 'preservim/nerdtree'
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim'
+    Plug 'Exafunction/codeium.vim'
+    Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-commentary'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+    Plug 'vim-ruby/vim-ruby'
+    Plug 'tpope/vim-rails'
+    Plug 'ervandew/supertab'
+    Plug 'drewtempelmeyer/palenight.vim'
+    Plug 'hashivim/vim-terraform'
+]]
+
+-- Initialize vim-plug
+vim.cmd [[
+    call plug#end()
+]]
+
+
+-- Configs
+vim.o.tabstop = 2
+vim.o.shiftwidth = 2
+vim.o.softtabstop = 2
+vim.o.expandtab = true
+vim.o.background = 'dark'
+vim.o.autoindent = true
+vim.o.smartindent = true
+vim.o.number = true
+vim.o.relativenumber = true
+vim.o.hlsearch = true
+vim.o.incsearch = true
+vim.o.termguicolors = true
+vim.o.backup = false
+vim.o.writebackup = false
+vim.o.swapfile = false
+
+vim.cmd [[
+ colorscheme palenight
+]]
+
+-- Key bindings
+
+vim.g.mapleader = ' '
+
+vim.api.nvim_set_keymap('n', '<Leader>n', ':NERDTreeFind<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>t', ':NERDTreeToggle<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-f>', ':Telescope live_grep<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-p>', ':Telescope find_files<CR>', { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap('n', '<Leader>r', ':source ~/.config/nvim/init.lua<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<Leader>c', ':Commentary<CR>', { noremap = true })
